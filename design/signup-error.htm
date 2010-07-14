@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>pika-lates</title>
+    <link rel="stylesheet" media="screen" href="rg.css" />
+    <link rel="stylesheet" media="screen" href="pika-lates.css" />
+</head>
+
+<body>
+
+<div class="row" id="header">
+    <div class="col g12">
+    <h1>pika-lates</h1>
+    </div>
+</div>
+
+<div class="row" id="page">
+    <div class="col g12">
+
+        <form id="late-submit" method="post" action="#">
+        <div class="info error"><strong>Error:</strong> {%errormsg%}</div>
+            <fieldset id="late-submit-user">
+                <legend>Dear pika cooks,</legend>
+                <label for="name">My first name is </label>
+                <input type="text" id="name" name="name" />
+                <label for="email">My email address is </label>
+                <input type="text" id="email" name="email" />
+            </fieldset>
+            <fieldset id="late-submit-type">
+                <legend>I need a late tonight...</legend>
+
+                    <label><input type="radio" name="type" id="type" value="all" /> no matter when dinner is served.</label>
+                    <label><input type="radio" name="type" id="type" value="early" /> if dinner will be served early (before 7pm).</label>
+
+            </fieldset>
+            <fieldset id="late-submit-schedule">
+                <legend>This late is for... </legend>
+
+                    <label><input type="radio" name="schedule" id="schedule" value="today" /> today only.</label>
+                    <label><input type="radio" name="schedule" id="schedule" value="this-weekday" /> every Tuesday.</label>
+                    <!--<label><input type="radio" name="schedule" id="schedule" value="custom" /> a custom schedule...</label>-->
+                    <div class="info"><strong>Note:</strong> You can cancel or modify a late at any time.  You will receive an email with instructions on how to do so.</div>
+
+            </fieldset>
+    </div>
+</div>
+<div class="row">
+    <div class="col g6 left">
+            <fieldset id="late-submit-diet">
+                <legend>My diet is </legend>
+
+                    <label><input type="radio" name="diet" id="diet" value="v*" /> V* (vegan)</label>
+                    <label><input type="radio" name="diet" id="diet" value="v" /> V (vegetarian)</label>
+                    <label><input type="radio" name="diet" id="diet" value="m" /> M (meat eater)</label>
+
+            </fieldset>
+    </div><div class="col g6 right">
+            <fieldset id="late-submit-diet2">
+                <legend>I can't eat  </legend>
+
+                    <label><input type="checkbox" name="glutenfree" id="glutenfree" /> Gluten</label>
+                    <label><input type="checkbox" name="nonuts" id="nonuts"/> Tree Nuts</label>
+                    <label><input type="checkbox" name="nopeanuts" id="nopeanuts" /> Peanuts</label>
+
+            </fieldset>
+    </div>
+</div>
+<div class="row">
+    <div class="col g12">
+            <fieldset id="late-submit-special">
+                <legend>Any special requests? </legend>
+                <input type="text" id="special" name="special" />
+                <input type="submit" value="Sign Up" />
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div class="row" id="footer">
+    <div class="col g12">
+    <p>Created by <a href="http://cdawzrd.com">cdawzrd</a></p>
+    </div>
+</div>
+
+</body>
+
+</html>

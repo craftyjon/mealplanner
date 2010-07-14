@@ -1,0 +1,235 @@
+/* pika-lates.css
+ * @revision 0.1
+ * @author jevans
+ * @date 20100713
+ *
+ * Main styles for the pika-lates app
+ */
+
+body {
+    font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+    font-size: 16px;
+    background-color: #cadfff;
+    color: #111;
+    line-height: 1.625em;
+}
+
+#header {
+    text-align: center;
+}
+
+#header h1 {
+    font-size: 3em;
+    font-weight: normal;
+    letter-spacing: 2px;
+    padding: 0.75em 0 0.25em 0;
+    color: #262626;
+    text-shadow: 1px 1px 4px rgba(0,0,0,.5);
+
+}
+
+p {
+    padding: 0.5em 2em 1em 2em;
+}
+
+pre {
+    padding: 0.5em 2em 0.5em 2em;
+    background-color: rgba(0,0,0,.1);
+    margin: 0.25em 1em 1em;
+}
+
+
+fieldset {
+    margin: 1.5em 5em;
+    background: #B2C6E8;
+    border: 1px solid #ddf;
+    border-bottom: 1px solid #aaf;
+    border-right: 1px solid #aaf;
+}
+
+#late-submit {
+    background: none;
+    border: 0;
+}
+
+.g6.left fieldset {
+    margin: 1.5em .5em 1.5em 5em;
+}
+
+.g6.right fieldset  {
+    margin: 1.5em 5em 1.5em .5em;
+}
+
+
+
+legend {
+    background: #8D9CB3;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 0.75em;
+    padding: .5em 1em;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    border: 1px solid #ddf;
+    border-bottom: none;
+    text-shadow: 1px 1px 3px #333;
+}
+
+input {
+    width: 50%;
+    font-size: 1em;
+    margin: 0 0 1em 2em;
+    height: 2em;
+    padding: 0.25em;
+    color: #000;
+    box-shadow: 1px 1px 5px #555;
+    -moz-box-shadow: 1px 1px 5px #555;
+    -webkit-box-shadow: 1px 1px 5px #555;
+}
+
+#late-dashboard-controls input {
+    width: 25%;
+    margin: 1em;
+}
+
+.center {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-left: 2em;
+    margin-top: 0.25em;
+}
+
+label>input {
+    margin-left: 0em;
+    vertical-align: baseline;
+    position: relative;
+    top: 1px;
+    width: auto;
+    height: auto;
+}
+
+
+
+input#special {
+    width: 88%;
+    margin: 1em 2em;
+}
+
+input[type=submit], input[type=button] {
+    width: 25%;
+    border: 1px solid #ccc;
+    background-color: #ddd;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 1px 1px 5px #555;
+    -moz-box-shadow: 1px 1px 5px #555;
+    -webkit-box-shadow: 1px 1px 5px #555;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(197,199,224)), color-stop(1, rgb(245,246,255)));
+    background-image: -moz-linear-gradient(center bottom,rgb(197,199,224) 0%,rgb(245,246,255) 100%);
+    text-shadow: 1px 1px 3px #888;
+    outline: 0;
+    border: 0;
+}
+
+input[type=submit]:active, input[type=button]:active {
+    box-shadow:inset 1px 1px 5px #555;
+    -moz-box-shadow:inset 1px 1px 5px #555;
+    -webkit-box-shadow:inset 1px 1px 5px #555;
+    outline: 0;
+    border: 0;
+}
+
+
+.info {
+    margin: 1em;
+    font-size: 0.8em;
+    border: 1px solid #8C866F;
+    background-color: #E8E6B3;
+    text-align: center;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 1px 1px 2px #888;
+    -moz-box-shadow: 1px 1px 2px #888;
+    -webkit-box-shadow: 1px 1px 2px #888;
+}
+
+.info.error {
+    background-color: #FAC1B1;
+    padding: 0.25em 1em;
+    margin: 1em 5em;
+}
+
+.dashboard-entry {
+    background: rgba(255,250,245,.9);
+    margin: 1em;
+    padding: 0.5em;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+}
+
+.dashboard-entry:nth-of-type(odd) {
+    background: rgba(255,250,245,.9);
+}
+
+.dashboard-entry h3 {
+    float: left;
+    font-size: 2.5em;
+    padding: 10px 10px 15px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,.2);
+}
+
+.dashboard-entry h4 {
+    float: right;
+    font-size: 1.8em;
+    font-weight: normal;
+    padding: 12px 10px 10px;
+}
+
+.dashboard-entry h5 {
+    font-weight: normal;
+    background-color: E8E6B3;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 2px 5px;
+    text-align: center;
+
+    margin: 0 auto;
+}
+
+.Vegetarian { color: #049; }
+.Vegan { color: #062; }
+.Meat { color: #900; }
+
+
+.errorlist {
+    width: 16em;
+    text-align: center;
+    margin: 0 2.4em;
+    background-color: #FAC1B1;
+    font-size: 0.8em;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 1px 1px 2px #888;
+    -moz-box-shadow: 1px 1px 2px #888;
+    -webkit-box-shadow: 1px 1px 2px #888;
+}
+
+
+#footer {
+    font-size: .8em;
+    color: #262626;
+    text-align: center;
+    padding: 2em 0;
+}
+
+#footer a {
+    color: #88f;
+}

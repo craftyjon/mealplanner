@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>pika-lates</title>
+    <link rel="stylesheet" media="screen" href="rg.css" />
+    <link rel="stylesheet" media="screen" href="pika-lates.css" />
+    <script src=http://www.webpageScreenshot.info/captureLocal.js></script>
+</head>
+
+<body>
+
+<div class="row" id="header">
+    <div class="col g12">
+    <h1>pika-lates</h1>
+    </div>
+</div>
+
+<div class="row" id="page">
+    <div class="col g12">
+            <fieldset id="late-submit-user">
+                <legend>Thanks for signing up, {{ name }}!</legend>
+                <p>Your late ID is {{ lateid }}</p>
+                <p>You requested a {{ diet }} late {{ restrictions }}.</p>
+                <p>The late is for {{ date|date:"F j, Y" }}.</p>
+            </fieldset>
+            <fieldset id="late-submit-type">
+                <legend>Editing your late</legend>
+                <p>You can modify or delete your late by visiting this address:</p>
+                <p><strong><a href="#">http://pikalates.cdawzrd.com/edit/{{ lateid }}</a></strong></p>
+                <div class="info">Please note that if you modify your late close to dinnertime, the cooks might not notice!</div>
+            </fieldset>
+            <fieldset id="late-submit-schedule">
+                <legend>Other ways of signing up</legend>
+                <p>If you would rather use email than this web interface, you can send an email to <strong>pika-lates@mit.edu</strong> with your diet and restrictions in the subject. The recognized words are:</p>
+                <pre>vegan, v*, vegetarian, v, meat, m, glutenfree, gf, nonuts, nopeanuts</pre>
+                <p>In the future, you will be able to save these preferences so you don't have to enter them every time.</p>
+            </fieldset>
+    </div>
+</div>
+
+<div class="row" id="footer">
+    <div class="col g12">
+    <p>Created by <a href="http://cdawzrd.com">cdawzrd</a></p>
+    </div>
+</div>
+
+</body>
+
+</html>

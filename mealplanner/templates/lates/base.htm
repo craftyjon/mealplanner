@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" media="screen" href="{{ media_url }}rg.css" />
+    <link rel="stylesheet" media="screen" href="{{ media_url }}pika-lates.css" />
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+
+<div class="row" id="header">
+    <div class="col g12">
+    <h1>pika-lates</h1>
+    </div>
+</div>
+
+{% block content %}{% endblock %}
+{% block footer %}
+<div class="row" id="footer">
+    <div class="col g12">
+    <p>This is a work in progress. Please report bugs and request features by emailing Jon at <a href="mailto:cdawzrd@gmail.com">cdawzrd@gmail.com</a><br>
+    This is {{ todays_weekdaystr }}, day {{ todays_weekday }} of the week
+    </p>
+    </div>
+</div>
+{% endblock %}
+</body>
+{% block javascript %}{% endblock %}
+</html>

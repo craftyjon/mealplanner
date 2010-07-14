@@ -1,0 +1,39 @@
+{% extends "lates/base.htm" %}
+{% block title %}pika-lates{% endblock %}
+
+{% block javascript %}<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" /></script>
+<script src="{{ media_url }}dashboard.js" type="text/javascript" /></script>{% endblock %}
+{% block content %}
+<div class="row" id="page">
+    <div class="col g12">
+        <form id="late-submit" method="post" action="#">
+            <fieldset id="late-dashboard">
+                <legend>Dashboard - {{ current_date|date:"F j, Y" }}</legend>
+
+                {% for entry in todays_lates %}
+                <div class="dashboard-entry {{ entry.dietstring }}">
+                    <h3>{{ entry.name }}</h3>
+                    <h4>{{ entry.dietstring }}, {{ entry.restrictionstring }}.</h4>
+                    <div class="clear">&nbsp;</div>
+                    {% if entry.early %}
+                    <h5>Only if dinner will be served early</h5>
+                    {% endif %}
+                </div>
+                {% empty %}
+                <div class="dashboard-entry">
+                <h3>No Lates Today</h3>
+                <h4>Aren't you lucky!</h4>
+                <div class="clear">&nbsp;</div>
+                <div class="info">Please remember to check the old-fashioned calendar and your email, just in case.</div>
+                </div>
+                {% endfor %}
+            </fieldset>
+            <fieldset id="late-dashboard-controls">
+                <legend>Controls</legend>
+                <div class="center">
+                <input type="button" id="btn-signup" value="Dashboard" />
+                </div>
+            </fieldset>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "lates/base.htm" %}
+{% block title %}pika-lates{% endblock %}
+
+{% block javascript %}<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" /></script>
+<script src="{{ media_url }}dashboard.js" type="text/javascript" /></script>{% endblock %}
+
+{% block content %}
+<div class="row" id="page">
+    <div class="col g12">
+            <fieldset id="late-submit-user">
+                <legend>Thanks for signing up!</legend>
+                <p>Your late ID is {{ late_id }}</p>
+                <p>Until late-editing controls are done, contact Jon at cdawzrd@gmail.com if you want to change your late in the system.  Contact pika-summer-food if you want to cancel your late on the day of.</p>
+            </fieldset>
+            <fieldset id="late-dashboard-controls">
+                <legend>Controls</legend>
+                <div class="center">
+                <!--<input type="button" id="btn-edit" value="Edit My Late" />-->
+                <input type="button" id="btn-dashboard" value="Return To Dashboard" />
+
+                </div>
+                <!--<div class="info">Please note that if you modify your late close to dinnertime, the cooks might not notice!</div>-->
+            </fieldset>
+<!--
+            <fieldset id="late-submit-schedule">
+                <legend>Other ways of signing up</legend>
+                <p>If you would rather use email than this web interface, you can send an email to <strong>pika-lates@mit.edu</strong> with your diet and restrictions in the subject. The recognized words are:</p>
+                <pre>vegan, v*, vegetarian, v, meat, m, glutenfree, gf, nonuts, nopeanuts</pre>
+                <p>In the future, you will be able to save these preferences so you don't have to enter them every time.</p>
+            </fieldset>
+-->
+    </div>
+</div>
+{% endblock %}
