@@ -1,7 +1,8 @@
 from django.conf.urls.defaults import *
-from mealplanner.lates.views import overview
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+
+from mealplanner.lates.views import overview
+
 admin.autodiscover()
 
 urlpatterns = patterns('',

@@ -1,6 +1,9 @@
-from django import forms
-from utils import getWeekdayStr
 import datetime
+
+from django import forms
+
+from utils import getWeekdayStr
+
 
 class LateSubmitForm(forms.Form):
     name = forms.CharField(max_length=100)

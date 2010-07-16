@@ -1,5 +1,7 @@
-from django.db import models
 import datetime
+
+from django.db import models
+
 
 class LateRecord(models.Model):
     name = models.CharField(max_length=100)
