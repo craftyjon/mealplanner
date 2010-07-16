@@ -1,0 +1,34 @@
++--------------------------------+
+|  mealplanner -- a pika webapp  |
+|                                |
+| by jevans - http://cdawzrd.com |
+| public domain                  |
++--------------------------------+
+
+mealplanner is a program that aims to help pika's kitchen run more effectively.
+
+The goal of the project is to put several parts of pika's kitchen on the web.
+This information is visible to anyone with a web browser, and will also be displayed
+on a wall-mounted kiosk screen in the corner of the kitchen.
+
+The only app available right now is called "lates" and handles signups for lates
+(saved portions of pika dinner available to people on mealplan).  The app
+accepts signups over the web and by email (work in progress).  The app will also
+expose an API that allows developers to make apps for phones, plugins for other programs,
+and various other ways of connecting to the service to send or receive updates.
+
+Eventually, mealplanner will support managing signups for cooking and cleaning, with
+features such as backup cooks/cleaners, trades, substitute finding, etc.
+
+
+  ===========================
+  Contributing to the project
+  ===========================
+
+* Report issues!  Use the github issue tracker to report bugs and request features.
+
+* Can you program python?  Talk to jevans (cdawzrd@gmail.com) about what things you want to tackle
+
+* Do you want to develop an interface for your [phone|im client|toaster]?  See the above bullet.
+
+* Suggest features!
