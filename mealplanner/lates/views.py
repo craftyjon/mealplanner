@@ -125,10 +125,10 @@ def signupcomplete(request,id):
     media_url = settings.MEDIA_URL
     form = LateSubmitForm()
 
-    late = LateRecord.objects.filter(id=id)
+    late = LateRecord.objects.get(id=id)
     weekly = True
 
-    if late[0].schedule=="today":
+    if late.schedule=="today":
         weekly = False
 
     return render_to_response('lates/signup-complete.htm', {'current_date': curdate, 'media_url':media_url, 'todays_weekday':todays_weekday, 'form': form, 'late_id':id, 'weekly':weekly})
