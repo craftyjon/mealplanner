@@ -19,7 +19,7 @@ def overview(request):
     if now.hour < 19:
         curdate = now;
     else:
-        curdate = now + timedelta(days=1)
+        curdate = now + datetime.timedelta(days=1)
 
     media_url = settings.MEDIA_URL
 
@@ -119,7 +119,7 @@ def signupcomplete(request,id):
     if now.hour < 19:
         curdate = now;
     else:
-        curdate = now + timedelta(days=1)
+        curdate = now + datetime.timedelta(days=1)
 
     todays_weekday = getWeekday(now)
     media_url = settings.MEDIA_URL
