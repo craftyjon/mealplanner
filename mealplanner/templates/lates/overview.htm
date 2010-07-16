@@ -3,14 +3,6 @@
 
 {% block head %}<meta http-equiv="Refresh" content="300">{% endblock %}
 
-{% block header %}
-<div class="row" id="header">
-    <div class="col g12">
-    <h2>pika-lates</h2>
-    </div>
-</div>
-{% endblock %}
-
 {% block javascript %}<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" /></script>
 <script src="{{ media_url }}dashboard.js" type="text/javascript" /></script>{% endblock %}
 {% block content %}
@@ -38,11 +30,11 @@
                 </div>
                 {% endfor %}
             </fieldset>
-            <fieldset id="late-dashboard-controls" class="small">
+            <fieldset id="late-dashboard-controls">
                 <legend>Controls</legend>
                 <div class="center">
                 <input type="button" id="btn-signup" value="Sign Up" />
-                <input type="button" id="btn-refresh" value="Force Refresh" />
+                <input type="button" id="btn-dashboard" value="Dashboard Mode" />
                 </div>
             </fieldset>
     </div>

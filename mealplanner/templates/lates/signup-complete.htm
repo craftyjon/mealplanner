@@ -11,12 +11,16 @@
                 <legend>Thanks for signing up!</legend>
                 <p>Your late ID is {{ late_id }}</p>
                 <p>Until late-editing controls are done, contact Jon at cdawzrd@gmail.com if you want to change your late in the system.  Contact pika-summer-food if you want to cancel your late on the day of.</p>
+                {% if weekly %}
+                <p>You have signed up for a late every week on this day, for a period of 120 days.</p>
+                {% endif %}
+
             </fieldset>
             <fieldset id="late-dashboard-controls">
                 <legend>Controls</legend>
                 <div class="center">
                 <!--<input type="button" id="btn-edit" value="Edit My Late" />-->
-                <input type="button" id="btn-dashboard" value="Return To Dashboard" />
+                <input type="button" id="btn-overview" value="Return To Dashboard" />
 
                 </div>
                 <!--<div class="info">Please note that if you modify your late close to dinnertime, the cooks might not notice!</div>-->

@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from mealplanner.lates.views import dashboard
+from mealplanner.lates.views import overview
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -7,9 +7,9 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Example:
     (r'^lates/', include('mealplanner.lates.urls')),
-    ('^$', dashboard),
+    ('^$', overview),
 
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
+    # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
     # to INSTALLED_APPS to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

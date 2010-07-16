@@ -5,6 +5,7 @@ class LateRecord(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=200)
     date = models.DateTimeField('date added')
+    expires = models.DateTimeField('date expires')
     type = models.CharField(max_length=5)
     schedule = models.CharField(max_length=7)
     diet = models.CharField(max_length=2)
