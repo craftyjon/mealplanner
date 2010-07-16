@@ -13,6 +13,10 @@ function dashboardInit()
     });
 
     $('#btn-dashboard').click(function() {
+        location.href = "/lates/dashboard/";
+    });
+
+    $('#btn-overview').click(function() {
         location.href = "/lates/";
     });
 

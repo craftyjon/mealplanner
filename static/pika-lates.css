@@ -22,10 +22,14 @@ body {
     font-size: 3em;
     font-weight: normal;
     letter-spacing: 2px;
-    padding: 0.75em 0 0.25em 0;
+    padding: 0.75em 0 0.375em 0;
     color: #262626;
     text-shadow: 1px 1px 4px rgba(0,0,0,.5);
 
+}
+
+#header h2 {
+    display: none;
 }
 
 p {
@@ -91,6 +95,10 @@ input {
 #late-dashboard-controls input {
     width: 25%;
     margin: 1em;
+}
+
+#late-dashboard-controls.small {
+    display: none;
 }
 
 .center {
@@ -231,5 +239,6 @@ input[type=submit]:active, input[type=button]:active {
 }
 
 #footer a {
-    color: #88f;
+    color: #33f;
+    font-weight: bold;
 }
