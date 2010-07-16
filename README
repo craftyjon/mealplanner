@@ -20,6 +20,14 @@ and various other ways of connecting to the service to send or receive updates.
 Eventually, mealplanner will support managing signups for cooking and cleaning, with
 features such as backup cooks/cleaners, trades, substitute finding, etc.
 
+  ===========
+  Directories
+  ===========
+
+/design/ - some design documents.  Add your own concept art and code for new features here!
+/mealplanner/ - the django project
+/static/ - CSS, images, and script.  This is served from a different webserver.
+
 
   ===========================
   Contributing to the project
@@ -32,3 +40,14 @@ features such as backup cooks/cleaners, trades, substitute finding, etc.
 * Do you want to develop an interface for your [phone|im client|toaster]?  See the above bullet.
 
 * Suggest features!
+
+  ================
+  Running the code
+  ================
+
+You will need python, python-django, and your favorite web server (I use nginx, you might be more familiar with Apache).
+
+Check out the git repository.  Create a new config for your webserver at http://127.0.0.1:81, and point it at the /static/ directory.
+
+Run the django app with "python manage.py runserver 8000" or any other port.
+The program will now be running at http://127.0.0.1:8000.
