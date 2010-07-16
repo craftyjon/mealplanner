@@ -16,7 +16,13 @@ def overview(request):
     now = datetime.datetime.now()
     todays_weekday = getWeekday(now)
     todays_weekdaystr = getWeekdayStr(now)
+    if now.hour < 19:
+        curdate = now;
+    else:
+        curdate = now + timedelta(days=1)
+
     media_url = settings.MEDIA_URL
+
     for late in todays_lates:
         if late.type=="early":
             late.early = 1;
@@ -104,7 +110,7 @@ def signup(request):
     else:
         form = LateSubmitForm()
 
-    return render_to_response('lates/signup.htm', {'current_date': cd, 'media_url':media_url, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr,'form': form, 'globalError':globalError})
+    return render_to_response('lates/signup.htm', {'current_date': curdate, 'media_url':media_url, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr,'form': form, 'globalError':globalError})
 
 def signupcomplete(request,id):
     """Render the signup complete page for the lates app"""
