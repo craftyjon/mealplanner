@@ -8,10 +8,13 @@ from django.http import *
 from mealplanner.lates.models import LateRecord
 from forms import LateSubmitForm
 from utils import *
-
+from emails import *
 
 def overview(request):
     """Render the home view for the lates app."""
+    # Make sure old lates are deleted
+    expireLates()
+
     todays_lates = LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=datetime.datetime.today().weekday()))
 
     curdate = getDisplayTime()
@@ -41,6 +44,9 @@ def overview(request):
 
 def dashboard(request):
     """Render the fullscreen dashboard view of the lates app."""
+    # Make sure old lates are deleted
+    expireLates()
+
     todays_lates = LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=datetime.datetime.today().weekday()))
 
     curdate = getDisplayTime()
@@ -66,7 +72,7 @@ def dashboard(request):
         if late.restrictionstring:
             late.restrictionstring += "."
 
-    return render_to_response('lates/dashboard.htm', {'current_date': now, 'media_url':media_url, 'todays_lates':todays_lates, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr})
+    return render_to_response('lates/dashboard.htm', {'current_date': curdate, 'media_url':media_url, 'todays_lates':todays_lates, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr})
 
 def signup(request):
     """Render the signup form for the lates app"""
@@ -74,16 +80,10 @@ def signup(request):
 
     media_url = settings.MEDIA_URL
     globalError = ""
+    curdate = getSignupTime()
 
-    if now.hour < 19:
-        print "Before 7pm, no changes necessary"
-        curdate = now;
-    else:
-        print "After 7pm, advancing a day"
-        curdate = now + datetime.timedelta(days=1)
-
-    todays_weekday = getWeekday(now)
-    todays_weekdaystr = getWeekdayStr(now)
+    todays_weekday = getWeekday(curdate)
+    todays_weekdaystr = getWeekdayStr(curdate)
 
     if request.method == 'POST':    #handle submission
         form = LateSubmitForm(request.POST)
@@ -98,10 +98,10 @@ def signup(request):
                 if cd['schedule']=='weekday':
                     sched = todays_weekday
                     delta = datetime.timedelta(days=120)
-                    exp = curdate + delta
+                    exp = datetime.datetime.combine((curdate + delta), getRolloverTime())
                 else:
                     sched = 'today'
-                    exp = curdate
+                    exp = datetime.datetime.combine(curdate.date(), getRolloverTime())
 
                 lr = LateRecord(name=cd['name'],date=now,email=cd['email'],type=cd['type'],expires=exp,schedule=sched,diet=cd['diet'],glutenfree=cd['glutenfree'],nonuts=cd['nonuts'],nopeanuts=cd['nopeanuts'])
                 lr.save()
@@ -129,4 +129,6 @@ def signupcomplete(request,id):
     if late.schedule=="today":
         weekly = False
 
-    return render_to_response('lates/signup-complete.htm', {'current_date': curdate, 'media_url':media_url, 'todays_weekday':todays_weekday, 'form': form, 'late_id':id, 'weekly':weekly})
+    sendLateCreatedEmail(id)
+
+    return render_to_response('lates/signup-complete.htm', {'current_date': now, 'media_url':media_url, 'todays_weekday':todays_weekday, 'form': form, 'late_id':id, 'weekly':weekly})

@@ -2,7 +2,6 @@ import datetime
 
 from django.db import models
 
-
 class LateRecord(models.Model):
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=200)
@@ -16,7 +15,7 @@ class LateRecord(models.Model):
     nopeanuts = models.BooleanField()
 
     def __unicode__(self):
-        return u'%s %s %s %s %s %i %i %i' % (self.name, self.email, self.type, self.schedule, self.diet, self.glutenfree, self.nonuts, self.nopeanuts)
+        return u'[%d - created %s, expires %s] %s (%s) - %s - %s - %s, glutenfree=%i, nonuts=%i, nopeanuts=%i' % (self.id, self.date.strftime("%a, %b %d"), self.expires.strftime("%a, %b %d"), self.name, self.email, self.type, self.schedule, self.diet, self.glutenfree, self.nonuts, self.nopeanuts)
 
     def is_active_today(self):
         if self.schedule == 'today':
