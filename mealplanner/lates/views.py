@@ -7,19 +7,16 @@ from django.http import *
 
 from mealplanner.lates.models import LateRecord
 from forms import LateSubmitForm
-from utils import getWeekdayStr, getWeekday, getDietStr
+from utils import *
 
 
 def overview(request):
     """Render the home view for the lates app."""
     todays_lates = LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=datetime.datetime.today().weekday()))
-    now = datetime.datetime.now()
-    todays_weekday = getWeekday(now)
-    todays_weekdaystr = getWeekdayStr(now)
-    if now.hour < 19:
-        curdate = now;
-    else:
-        curdate = now + datetime.timedelta(days=1)
+
+    curdate = getDisplayTime()
+    todays_weekday = getWeekday(curdate)
+    todays_weekdaystr = getWeekdayStr(curdate)
 
     media_url = settings.MEDIA_URL
 
@@ -40,14 +37,16 @@ def overview(request):
         if late.restrictionstring:
             late.restrictionstring += "."
 
-    return render_to_response('lates/overview.htm', {'current_date': now, 'media_url':media_url, 'todays_lates':todays_lates, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr})
+    return render_to_response('lates/overview.htm', {'current_date': curdate, 'media_url':media_url, 'todays_lates':todays_lates, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr})
 
 def dashboard(request):
     """Render the fullscreen dashboard view of the lates app."""
     todays_lates = LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=datetime.datetime.today().weekday()))
-    now = datetime.datetime.now()
-    todays_weekday = getWeekday(now)
-    todays_weekdaystr = getWeekdayStr(now)
+
+    curdate = getDisplayTime()
+    todays_weekday = getWeekday(curdate)
+    todays_weekdaystr = getWeekdayStr(curdate)
+
     media_url = settings.MEDIA_URL
 
     for late in todays_lates:
@@ -114,18 +113,17 @@ def signup(request):
 
 def signupcomplete(request,id):
     """Render the signup complete page for the lates app"""
-    now = datetime.datetime.now()
-
-    if now.hour < 19:
-        curdate = now;
-    else:
-        curdate = now + datetime.timedelta(days=1)
+    now = getSignupTime()
 
     todays_weekday = getWeekday(now)
     media_url = settings.MEDIA_URL
     form = LateSubmitForm()
 
-    late = LateRecord.objects.get(id=id)
+    try:
+        late = LateRecord.objects.get(id=id)
+    except LateRecord.DoesNotExist:
+        print "mealplanner.lates.views.signupcomplete: late not found (line 131)"
+        late.schedule = "today"
     weekly = True
 
     if late.schedule=="today":
