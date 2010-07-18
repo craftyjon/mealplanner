@@ -33,8 +33,10 @@ def getDietStr(d):
         return "Vegetarian"
     if d=="v*":
         return "Vegan"
-
     return "DIET_NULL"
+
+def getTodaysLates():
+    return LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=datetime.datetime.today().weekday()))
 
 def getDisplayTime():
     ''' Returns the current date and time in the context of displaying a late '''

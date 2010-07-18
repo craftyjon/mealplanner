@@ -15,6 +15,8 @@ def overview(request):
     # Make sure old lates are deleted
     expireLates()
 
+    sendBroadcastReminder()
+
     todays_lates = LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=datetime.datetime.today().weekday()))
 
     curdate = getDisplayTime()
