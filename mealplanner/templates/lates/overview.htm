@@ -8,9 +8,9 @@
 {% block content %}
 <div class="row" id="page">
     <div class="col g12">
-        <form id="late-submit" method="post" action="#">
+
             <fieldset id="late-dashboard">
-                <legend>pika-lates - Dinner on {{ todays_weekdaystr }}, {{ current_date|date:"F j, Y" }}</legend>
+                <legend>Dinner on {{ todays_weekdaystr }}, {{ current_date|date:"F j, Y" }}</legend>
 
                 {% for entry in todays_lates %}
                 <div class="dashboard-entry {{ entry.dietstring }}">
@@ -30,11 +30,10 @@
                 </div>
                 {% endfor %}
             </fieldset>
-            <fieldset id="late-dashboard-controls">
-                <legend>Controls</legend>
+            <fieldset id="late-dashboard-controls" class="nobackground">
                 <div class="center">
-                <input type="button" id="btn-signup" value="Sign Up" />
-                <input type="button" id="btn-dashboard" value="Dashboard Mode" />
+                <form action="/lates/signup/" method="get"><input type="submit" id="btn-signup" value="Sign Up" /></form>
+                <form action="/lates/dashboard/" method="get"><input type="submit" id="btn-dashboard" value="Dashboard Mode" /></form>
                 </div>
             </fieldset>
     </div>

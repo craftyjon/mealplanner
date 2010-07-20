@@ -11,4 +11,4 @@ ROLLOVER_TIME = "19:00"
 BROADCAST_TIME = "18:00"
 
 # Emails to receive broadcast
-BROADCAST_EMAILS = "pika-summer@mit.edu"
+BROADCAST_EMAILS = "cdawzrd@gmail.com"

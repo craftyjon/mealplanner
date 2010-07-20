@@ -1,6 +1,8 @@
 import smtplib
 from email.mime.text import MIMEText
 
+from local_settings import BROADCAST_EMAILS
+
 from mealplanner.lates.models import LateRecord
 from mealplanner.lates.utils import getDietStr, getTodaysLates, getDisplayTime
 
@@ -33,7 +35,11 @@ def sendBroadcastReminder():
     ''' Sends an email broadcast about today's lates '''
     todays_lates = getTodaysLates()
     today = getDisplayTime()
-    msgStr = "This is an automated message from mealplanner.\n\nThe following people have requested a late today:\n"
+    msgStr = """
+This is an automated message from mealplanner.
+
+The following people have requested a late today:
+"""
 
     if len(todays_lates) == 0:
         print "No lates to broadcast"
@@ -50,7 +56,26 @@ def sendBroadcastReminder():
         msgStr += ")"
         if late.type=="early":
             msgStr += " -- Only if dinner will be served early"
+
     print "msgStr = " + msgStr
 
     msg = MIMEText(msgStr)
     msg['Subject'] = "mealplanner: lates requested for " +today.strftime("%a, %b %d")
+    msg['From'] = "Mealplanner <pika-lates@mit.edu>"
+    msg['To'] = "cdawzrd@gmail.com"
+
+    s = smtplib.SMTP()
+    try:
+        s.connect('127.0.0.1')
+        try:
+            s.sendmail(msg['From'], [msg['To']], msg.as_string())
+            s.quit()
+        except:
+            print "SMTP problem"
+    except:
+        print "Could not connect to SMTP server."
+        return
+
+
+
+    print "done"

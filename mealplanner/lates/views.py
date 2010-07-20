@@ -10,18 +10,22 @@ from forms import LateSubmitForm
 from utils import *
 from emails import *
 
+def broadcast(request):
+    #sendBroadcastReminder()
+    return HttpResponseRedirect('/lates/')
+
 def overview(request):
     """Render the home view for the lates app."""
     # Make sure old lates are deleted
     expireLates()
 
-    sendBroadcastReminder()
-
-    todays_lates = LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=datetime.datetime.today().weekday()))
-
     curdate = getDisplayTime()
     todays_weekday = getWeekday(curdate)
     todays_weekdaystr = getWeekdayStr(curdate)
+
+    todays_lates = LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=todays_weekday))
+
+
 
     media_url = settings.MEDIA_URL
 
@@ -49,11 +53,12 @@ def dashboard(request):
     # Make sure old lates are deleted
     expireLates()
 
-    todays_lates = LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=datetime.datetime.today().weekday()))
-
     curdate = getDisplayTime()
     todays_weekday = getWeekday(curdate)
     todays_weekdaystr = getWeekdayStr(curdate)
+
+    todays_lates = LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=todays_weekday))
+
 
     media_url = settings.MEDIA_URL
 
@@ -131,6 +136,6 @@ def signupcomplete(request,id):
     if late.schedule=="today":
         weekly = False
 
-    sendLateCreatedEmail(id)
+    #sendLateCreatedEmail(id)
 
     return render_to_response('lates/signup-complete.htm', {'current_date': now, 'media_url':media_url, 'todays_weekday':todays_weekday, 'form': form, 'late_id':id, 'weekly':weekly})
