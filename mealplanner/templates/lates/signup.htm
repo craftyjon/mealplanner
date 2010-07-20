@@ -6,7 +6,8 @@
 
 {% block content %}
 <div class="row" id="page">
-    <div class="col g12">
+    <div class="col g1">&nbsp;</div>
+    <div class="col g10">
         <form id="late-submit" method="post" action="/lates/signup/">
         {% if globalError %}
         <div class="info error">Error: {{ globalError }}</div>
@@ -25,6 +26,7 @@
                     {{ form.type.errors }}
                     {{ form.type }}
             </fieldset>
+
             <fieldset id="late-submit-schedule">
                 <legend>This late is for... </legend>
                     {{ form.schedule.errors }}
@@ -34,13 +36,14 @@
     </div>
 </div>
 <div class="row">
-    <div class="col g6 left">
+    <div class="col g1">&nbsp;</div>
+    <div class="col g5 left">
             <fieldset id="late-submit-diet">
                 <legend>My diet is </legend>
                     {{ form.diet.errors }}
                     {{ form.diet }}
             </fieldset>
-    </div><div class="col g6 right">
+    </div><div class="col g5 right">
             <fieldset id="late-submit-diet2">
                 <legend>I can't eat  </legend>
                     <label>{{ form.glutenfree }} Gluten</label>

@@ -56,11 +56,11 @@ fieldset {
     border: 0;
 }
 
-.g6.left fieldset {
+.left fieldset {
     margin: 1.5em .5em 1.5em 5em;
 }
 
-.g6.right fieldset  {
+.right fieldset  {
     margin: 1.5em 5em 1.5em .5em;
 }
 
