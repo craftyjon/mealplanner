@@ -60,7 +60,7 @@ def getExpiresTime():
 
 def getClock():
     now = datetime.datetime.now()
-    return now.strftime("%I:%M %p")
+    return "~"+now.strftime("%I:%M %p")
 
 def expireLates():
     ''' Removes all old lates '''
