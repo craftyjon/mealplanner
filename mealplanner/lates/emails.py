@@ -1,7 +1,7 @@
 import smtplib
 from email.mime.text import MIMEText
 
-from local_settings import BROADCAST_EMAILS, BROADCAST_EMAILS_ENABLE
+from local_settings import BROADCAST_EMAILS, ENABLE_BROADCAST
 
 from mealplanner.lates.models import LateRecord
 from mealplanner.lates.utils import getDietStr, getTodaysLates, getDisplayTime
@@ -33,7 +33,7 @@ def sendLateCreatedEmail(lateid):
 
 def sendBroadcastReminder():
     ''' Sends an email broadcast about today's lates '''
-    if !BROADCAST_EMAILS_ENABLE:
+    if not ENABLE_BROADCAST:
         return
     todays_lates = getTodaysLates()
     today = getDisplayTime()

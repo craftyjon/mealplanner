@@ -40,9 +40,9 @@ def getTodaysLates():
 
 def getDisplayTime():
     ''' Returns the current date and time in the context of displaying the dashboard/overview '''
-    	# currently this follows "normal" rollover
-	now = datetime.datetime.now()
-	return now
+    # currently this follows "normal" rollover
+    now = datetime.datetime.now()
+    return now
 
 def getSignupTime():
     ''' Returns the current date and time in the context of submitting a late '''
