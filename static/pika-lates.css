@@ -49,6 +49,7 @@ fieldset {
     border: 1px solid #ddf;
     border-bottom: 1px solid #aaf;
     border-right: 1px solid #aaf;
+
 }
 
 .nobackground {
@@ -214,6 +215,29 @@ input[type=submit]:active, input[type=button]:active {
     margin: 0 auto;
 }
 
+.largetext {
+    margin-top: 1em;
+}
+
+.largetext h3 {
+    font-size: 3.5em;
+    padding: 8px 8px 14px 12px;
+}
+
+.largetext h4 {
+    font-size: 2.2em;
+}
+
+.largetext .dashboard-entry {
+    padding: 0.75em;
+}
+
+.largetext .info {
+    font-size: 1em;
+    padding: 0.5em;
+    margin: 2em 1em 1em;
+}
+
 .Vegetarian { color: #049; }
 .Vegan { color: #062; }
 .Meat { color: #900; }
@@ -231,6 +255,21 @@ input[type=submit]:active, input[type=button]:active {
     box-shadow: 1px 1px 2px #888;
     -moz-box-shadow: 1px 1px 2px #888;
     -webkit-box-shadow: 1px 1px 2px #888;
+}
+
+#top-meta {
+    float: right;
+    margin-top: -85px;
+}
+
+#top-meta-clock {
+    display: inline-block;
+    background-color: #8D9CB3;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2em;
+    letter-spacing: 1px;
+    padding: 18px 18px 14px;
 }
 
 

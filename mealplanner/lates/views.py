@@ -19,7 +19,7 @@ def overview(request):
     # Make sure old lates are deleted
     expireLates()
 
-    curdate = getDisplayTime()
+    curdate = getDisplayDatetime()
     todays_weekday = getWeekday(curdate)
     todays_weekdaystr = getWeekdayStr(curdate)
 
@@ -53,14 +53,18 @@ def dashboard(request):
     # Make sure old lates are deleted
     expireLates()
 
-    curdate = getDisplayTime()
+    media_url = settings.MEDIA_URL
+    curdate = getDisplayDatetime()
     todays_weekday = getWeekday(curdate)
     todays_weekdaystr = getWeekdayStr(curdate)
 
     todays_lates = LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=todays_weekday))
 
+    logged_in = False
 
-    media_url = settings.MEDIA_URL
+    meta_user = ""
+
+    meta_clock = getClock()
 
     for late in todays_lates:
         if late.type=="early":
@@ -79,7 +83,7 @@ def dashboard(request):
         if late.restrictionstring:
             late.restrictionstring += "."
 
-    return render_to_response('lates/dashboard.htm', {'current_date': curdate, 'media_url':media_url, 'todays_lates':todays_lates, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr})
+    return render_to_response('lates/dashboard.htm', {'current_date': curdate, 'media_url':media_url, 'todays_lates':todays_lates, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr, 'logged_in':logged_in, 'meta_clock':meta_clock, 'meta_user':meta_user})
 
 def signup(request):
     """Render the signup form for the lates app"""
@@ -105,10 +109,10 @@ def signup(request):
                 if cd['schedule']=='weekday':
                     sched = todays_weekday
                     delta = datetime.timedelta(days=120)
-                    exp = datetime.datetime.combine((curdate + delta), getRolloverTime())
+                    exp = datetime.datetime.combine((curdate + delta), getExpiresTime())
                 else:
                     sched = 'today'
-                    exp = datetime.datetime.combine(curdate.date(), getRolloverTime())
+                    exp = datetime.datetime.combine(curdate.date(), getExpiresTime())
 
                 lr = LateRecord(name=cd['name'],date=now,email=cd['email'],type=cd['type'],expires=exp,schedule=sched,diet=cd['diet'],glutenfree=cd['glutenfree'],nonuts=cd['nonuts'],nopeanuts=cd['nopeanuts'])
                 lr.save()
@@ -120,9 +124,10 @@ def signup(request):
 
 def signupcomplete(request,id):
     """Render the signup complete page for the lates app"""
-    now = getSignupTime()
+    curdate = getSignupTime()
 
-    todays_weekday = getWeekday(now)
+    todays_weekday = getWeekday(curdate)
+    todays_weekdaystr = getWeekdayStr(curdate)
     media_url = settings.MEDIA_URL
     form = LateSubmitForm()
 
@@ -138,4 +143,4 @@ def signupcomplete(request,id):
 
     #sendLateCreatedEmail(id)
 
-    return render_to_response('lates/signup-complete.htm', {'current_date': now, 'media_url':media_url, 'todays_weekday':todays_weekday, 'form': form, 'late_id':id, 'weekly':weekly})
+    return render_to_response('lates/signup-complete.htm', {'current_date': curdate, 'media_url':media_url, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr, 'form': form, 'late_id':id, 'weekly':weekly})

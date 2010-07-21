@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from local_settings import BROADCAST_EMAILS, ENABLE_BROADCAST
 
 from mealplanner.lates.models import LateRecord
-from mealplanner.lates.utils import getDietStr, getTodaysLates, getDisplayTime
+from mealplanner.lates.utils import getDietStr, getTodaysLates, getDisplayDatetime
 
 def sendLateCreatedEmail(lateid):
     ''' Send a confirmation email to the user after they submit the Sign Up form '''

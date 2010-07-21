@@ -38,7 +38,7 @@ def getDietStr(d):
 def getTodaysLates():
     return LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=datetime.datetime.today().weekday()))
 
-def getDisplayTime():
+def getDisplayDatetime():
     ''' Returns the current date and time in the context of displaying the dashboard/overview '''
     # currently this follows "normal" rollover
     now = datetime.datetime.now()
@@ -54,6 +54,13 @@ def getSignupTime():
 
 def getRolloverTime():
     return datetime.datetime.strptime(ROLLOVER_TIME, "%H:%M").time()
+
+def getExpiresTime():
+    return datetime.datetime.strptime("23:59", "%H:%M").time()
+
+def getClock():
+    now = datetime.datetime.now()
+    return now.strftime("%I:%M %p")
 
 def expireLates():
     ''' Removes all old lates '''
