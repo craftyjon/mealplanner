@@ -11,4 +11,9 @@ ROLLOVER_TIME = "19:00"
 BROADCAST_TIME = "18:00"
 
 # Emails to receive broadcast
-BROADCAST_EMAILS = "cdawzrd@gmail.com"
+BROADCAST_EMAILS = "you@yourhost.com"
+ENABLE_BROADCAST = False
+
+# Email stuff
+SMTP_SERVER = "127.0.0.1"
+SMTP_PORT = 25
