@@ -39,8 +39,10 @@ def getTodaysLates():
     return LateRecord.objects.filter(Q(schedule="today") | Q(schedule__contains=datetime.datetime.today().weekday()))
 
 def getDisplayTime():
-    ''' Returns the current date and time in the context of displaying a late '''
-    return getSignupTime()
+    ''' Returns the current date and time in the context of displaying the dashboard/overview '''
+    	# currently this follows "normal" rollover
+	now = datetime.datetime.now()
+	return now
 
 def getSignupTime():
     ''' Returns the current date and time in the context of submitting a late '''
