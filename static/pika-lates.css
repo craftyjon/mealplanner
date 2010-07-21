@@ -215,28 +215,144 @@ input[type=submit]:active, input[type=button]:active {
     margin: 0 auto;
 }
 
-.largetext {
+
+/**** Begin dashboard mode styles ****/
+
+.dashboard {
     margin-top: 1em;
 }
 
-.largetext h3 {
+.dashboard h3 {
     font-size: 3.5em;
-    padding: 8px 8px 14px 12px;
+    padding: 8px 8px 14px 24px;
+    letter-spacing: 1px;
 }
 
-.largetext h4 {
-    font-size: 2.2em;
+.dashboard h4 {
+    font-size: 2.4em;
+    letter-spacing: 1px;
+    padding-right: 24px;
 }
 
-.largetext .dashboard-entry {
+.dashboard .dashboard-entry {
     padding: 0.75em;
 }
 
-.largetext .info {
+.dashboard .info {
     font-size: 1em;
     padding: 0.5em;
     margin: 2em 1em 1em;
 }
+
+.dashboard fieldset {
+    margin: 0;
+    border: 0;
+    padding-top: 1em;
+    -moz-border-radius-bottomright: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.dashboard .header {
+    height: 60px;
+    background: #8D9CB3;
+    margin: 0;
+    width: 310px;
+    color: #fff;
+}
+
+.dashboard #meta-day {
+    margin-left: 10px;
+    text-align: left;
+    border-top-left-radius: 15px;
+    -moz-border-radius-topleft: 15px;
+}
+
+.dashboard #meta-date {
+    width: 310px;
+    text-align: center;
+    padding-left: 10px;
+}
+
+.dashboard #meta-clock {
+    text-align: right;
+    width: 310px;
+    border-top-right-radius: 15px;
+    -moz-border-radius-topright: 15px;
+}
+
+.dashboard .header h2 {
+    font-size: 2.2em;
+    font-weight: bold;
+    padding: 0.5em;
+    margin: 0.25em;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px #666;
+}
+
+.dashboard .header p {
+    padding: 16px 10px;
+    font-size: 1.6em;
+    letter-spacing: 2px;
+}
+
+.dashboard #meta-controls {
+    background: #8D9CB3;
+    padding: 0 0;
+    text-align: center;
+}
+
+
+.dashboard #meta-controls li {
+    display: inline;
+}
+
+.dashboard #meta-controls a {
+    display: inline-block;
+
+    background-color: #ddd;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 1px 1px 5px #555;
+    -moz-box-shadow: 1px 1px 5px #555;
+    -webkit-box-shadow: 1px 1px 5px #555;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(197,199,224)), color-stop(1, rgb(245,246,255)));
+    background-image: -moz-linear-gradient(center bottom,rgb(197,199,224) 0%,rgb(245,246,255) 100%);
+
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    margin: 0 8px 8px;
+    padding: 0 8px;
+    color: #444;
+    text-shadow: 1px 1px 2px #666;
+    text-decoration: none;
+}
+
+.dashboard #meta-controls a:hover {
+    cursor: pointer;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(197,199,224)), color-stop(1, rgb(245,246,255)));
+    background-image: -moz-linear-gradient(center bottom,rgb(208,210,234) 0%,rgb(255,255,255) 100%);
+}
+
+.dashboard #meta-controls a:active {
+    box-shadow:inset 1px 1px 5px #555;
+    -moz-box-shadow:inset 1px 1px 5px #555;
+    -webkit-box-shadow:inset 1px 1px 5px #555;
+}
+
+
+input[type=submit]:active, input[type=button]:active {
+    box-shadow:inset 1px 1px 5px #555;
+    -moz-box-shadow:inset 1px 1px 5px #555;
+    -webkit-box-shadow:inset 1px 1px 5px #555;
+    outline: 0;
+    border: 0;
+}
+
+/**** End dashboard styles ****/
+
 
 .Vegetarian { color: #049; }
 .Vegan { color: #062; }

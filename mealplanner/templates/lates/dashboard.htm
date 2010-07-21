@@ -1,21 +1,26 @@
 {% extends "lates/base.htm" %}
 {% block title %}lates dashboard - mealplanner{% endblock %}
-{% block head %}<meta http-equiv="Refresh" content="300">{% endblock %}
+{% block head %}<meta http-equiv="Refresh" content="30">{% endblock %}
 {% block header %}
 {% endblock %}
 {% block javascript %}<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" /></script>
 <script src="{{ media_url }}dashboard.js" type="text/javascript" /></script>{% endblock %}
 {% block content %}
 
-<div class="row largetext" id="page">
+<div class="row dashboard" id="page">
+    <div class="col g4 header" id="meta-day"><h2>{{ todays_weekdaystr }}</h2></div>
+    <div class="col g4 header" id="meta-date"><p>{{ current_date|date:"F j, Y" }}</p></div>
+    <div class="col g4 header" id="meta-clock"><h2>{{ meta_clock }}</h2></div>
+
+    <div class="col g12" id="meta-controls"><ul><li><a href="/lates/">Overview</a></li><li><a href="/lates/signup/">Sign Up</a></li></ul></div>
+
     <div class="col g12">
         <form id="late-submit" method="post" action="#">
             <fieldset id="late-dashboard">
             <div id="top-meta"{% if logged_in %} class="loggedin"{% endif %}>
 <div id="top-meta-user">{{ meta_user }}</div>
-<div id="top-meta-clock">{{ meta_clock }}</div>
+<div id="top-meta-clock"></div>
 </div>
-                <legend>{{ todays_weekdaystr }}, {{ current_date|date:"F j, Y" }}</legend>
                 {% for entry in todays_lates %}
                 <div class="dashboard-entry {{ entry.dietstring }}">
                     <h3>{{ entry.name }}</h3>
