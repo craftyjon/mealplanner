@@ -114,7 +114,9 @@ input {
     -webkit-box-shadow: 1px 1px 5px #555;
 }
 
-input#id_email { width: 60%; }
+input[type=text] {
+    width: 60%;
+}
 
 #late-dashboard-controls input {
     width: 25%;
