@@ -1,4 +1,18 @@
-#### Settings for lates application
+import os.path
+
+# Settings for this mealplanner instance
+
+# Path to database, relative to local_settings.py
+DATABASE_PATH = "mealplanner.db"
+
+# Absolute path to the directory that holds media.
+# Example: "/home/media/media.lawrence.com/"
+MEDIA_ROOT = os.path.join(os.path.dirname(__file__), '../static/').replace('\\','/'),
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash if there is a path component (optional in other cases).
+
+MEDIA_URL = 'http://18.214.1.236:81/'
 
 # Time that the system switches over to the next day.  Set to "dinnertime" usually.
 ROLLOVER_TIME = "19:00"

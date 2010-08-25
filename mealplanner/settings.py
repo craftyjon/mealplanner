@@ -34,18 +34,8 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = True
 
-# Absolute path to the directory that holds media.
-# Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__), '../static/').replace('\\','/'),
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash if there is a path component (optional in other cases).
-# Examples: "http://media.lawrence.com", "http://example.com/media/"
-print os.uname()
-if(os.uname() == "cdawzrd.com"):
-    MEDIA_URL = 'http://mealplanner.cdawzrd.com/media/'
-else:
-    MEDIA_URL = 'http://127.0.0.1:81/'
+
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
