@@ -1,0 +1,39 @@
+{% extends "base.htm" %}
+{% block title %}home - mealplanner{% endblock %}
+
+{% block content %}
+<div class="row" id="homepage">
+<div class="row">
+    <div class="col g6">
+        <div class="box">
+        <a href="/lates/">Lates<br />
+        <img src="{{ media_url }}/temp_lates.png" />
+        </a>
+        </div>
+    </div>
+    <div class="col g6">
+        <div class="box">
+        <a href="/menu/">Dinner Menu<br />
+        <img src="{{ media_url }}/temp_dinnermenu.png" />
+        </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col g6">
+        <div class="box">
+        <a href="/cook/">Cooking Schedule<br />
+        <img src="{{ media_url }}/temp_cooking.png" />
+        </a>
+        </div>
+    </div>
+    <div class="col g6">
+        <div class="box">
+        <a href="/clean/">Cleaning Schedule<br />
+        <img src="{{ media_url }}/temp_cleaning.png" />
+        </a>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

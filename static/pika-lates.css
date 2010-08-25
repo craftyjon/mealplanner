@@ -18,7 +18,15 @@ body {
     text-align: center;
 }
 
+h1 {
+    font-size: 2em;
+    color: #333;
+    letter-spacing: 1px;
+    margin: 0.5em 30px;
+}
+
 #header h1 {
+    margin: 0;
     font-size: 3em;
     font-weight: normal;
     letter-spacing: 2px;
@@ -26,6 +34,14 @@ body {
     color: #262626;
     text-shadow: 1px 1px 4px rgba(0,0,0,.5);
 
+}
+
+
+
+h3 {
+    font-size: 1.2em;
+    margin: 0.5em 30px;
+    color: #444;
 }
 
 #header h2 {
@@ -154,6 +170,35 @@ input[type=submit]:active, input[type=button]:active {
     -webkit-box-shadow:inset 1px 1px 5px #555;
     outline: 0;
     border: 0;
+}
+
+#homepage .box {
+    margin: 0.75em 5em;
+    height: 240px;
+    text-align: center;
+
+}
+
+#homepage .box a {
+    text-decoration: none;
+    font-size: 1.8em;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+#homepage .box img {
+    margin: 0.5em 0;
+}
+
+#homepage .g6 {
+    background: #B2C6E8;
+    border-radius: 14px;
+    -moz-border-radius: 14px;
+    -webkit-border-radius: 14px;
+}
+
+#homepage .row {
+    margin-top: 1em;
 }
 
 

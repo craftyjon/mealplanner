@@ -10,7 +10,7 @@
     <div class="col g12">
 
             <fieldset id="late-dashboard">
-                <legend>Dinner on {{ todays_weekdaystr }}, {{ current_date|date:"F j, Y" }}</legend>
+                <legend>Lates for {{ todays_weekdaystr }}, {{ current_date|date:"F j, Y" }}</legend>
 
                 {% for entry in todays_lates %}
                 <div class="dashboard-entry {{ entry.dietstring }}">
@@ -28,7 +28,7 @@
                 <div class="clear">&nbsp;</div>
                 </div>
                 {% endfor %}
-                <div class="info">Please remember to check the old-fashioned calendar and your email, just in case.</div>
+                <div class="info">Please remember to check your email, just in case.</div>
             </fieldset>
             <fieldset id="late-dashboard-controls" class="nobackground">
                 <div class="center">

@@ -3,8 +3,9 @@ import datetime
 from django.db import models
 
 class LateRecord(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=20)
     email = models.CharField(max_length=200)
+    message = models.CharField(max_length=500)
     date = models.DateTimeField('date added')
     expires = models.DateTimeField('date expires')
     type = models.CharField(max_length=5)

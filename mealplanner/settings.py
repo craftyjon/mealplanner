@@ -74,7 +74,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'mealplanner.lates'
+    'mealplanner.lates',
+    'mealplanner.menu',
 )
 
 from local_settings import *

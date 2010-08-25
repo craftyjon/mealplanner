@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" media="screen" href="{{ media_url }}rg.css" />
+    <link rel="stylesheet" media="screen" href="{{ media_url }}pika-lates.css" />
+    <link rel="stylesheet" media="handheld" href="{{ media_url }}mealplanner-mobile.css" />
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+{% block header %}
+<div class="row" id="header">
+    <div class="col g12">
+    <h1>mealplanner</h1>
+    </div>
+</div>
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}
+<div class="row" id="footer">
+    <div class="col g12">
+    <p>This is a work in progress. Please report bugs and request features by emailing <a href="mailto:mealplanner-dev@mit.edu">mealplanner-dev@mit.edu</a>.
+    </p>
+    </div>
+</div>
+{% endblock %}
+</body>
+{% block javascript %}{% endblock %}
+</html>

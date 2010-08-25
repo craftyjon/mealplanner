@@ -5,14 +5,14 @@ from django.conf import settings
 from django.db.models import Q
 from django.http import *
 
-from mealplanner.lates.models import LateRecord
-from forms import LateSubmitForm
-from utils import *
-from emails import *
+from models import MenuItem
+from forms import MenuEditForm
 
-def broadcast(request):
-    #sendBroadcastReminder()
-    return HttpResponseRedirect('/lates/')
+def DisplayMenu(request):
+
+    return render_to_response('menu/displaymenu.htm')
+
+def EditMenu(request):
 
 def overview(request):
     """Render the home view for the lates app."""
@@ -114,7 +114,7 @@ def signup(request):
                     sched = 'today'
                     exp = datetime.datetime.combine(curdate.date(), getExpiresTime())
 
-                lr = LateRecord(name=cd['name'],date=now,email=cd['email'],message=cd['message'],type=cd['type'],expires=exp,schedule=sched,diet=cd['diet'],glutenfree=cd['glutenfree'],nonuts=cd['nonuts'],nopeanuts=cd['nopeanuts'])
+                lr = LateRecord(name=cd['name'],date=now,email=cd['email'],type=cd['type'],expires=exp,schedule=sched,diet=cd['diet'],glutenfree=cd['glutenfree'],nonuts=cd['nonuts'],nopeanuts=cd['nopeanuts'])
                 lr.save()
                 return HttpResponseRedirect('/lates/signup-complete/'+str(lr.id))
     else:

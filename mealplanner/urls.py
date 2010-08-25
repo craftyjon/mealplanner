@@ -1,19 +1,21 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
+from local_settings import MEDIA_URL
 
-from mealplanner.lates.views import overview
+from mealplanner.home.views import homepage
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
     (r'^lates/', include('mealplanner.lates.urls')),
-    ('^$', overview),
+    (r'^menu/', include('mealplanner.menu.urls')),
+    #(r'^cook/', include('mealplanner.cook.urls')),
+    #(r'^clean/', include('mealplanner.clean.urls')),
+    (r'^cook/', 'django.views.generic.simple.direct_to_template', {'template': 'comingsoon.htm', 'extra_context': {'media_url':MEDIA_URL}}),
+    (r'^clean/', 'django.views.generic.simple.direct_to_template', {'template': 'comingsoon.htm', 'extra_context': {'media_url':MEDIA_URL}}),
+    ('^$', homepage),
 
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
-    # to INSTALLED_APPS to enable admin documentation:
+
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
 )
