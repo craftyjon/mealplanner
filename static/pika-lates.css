@@ -18,11 +18,22 @@ body {
     text-align: center;
 }
 
+#header a {
+    text-decoration: none;
+}
+
 h1 {
     font-size: 2em;
     color: #333;
     letter-spacing: 1px;
     margin: 0.5em 30px;
+}
+
+
+h3 {
+    font-size: 1.2em;
+    margin: 0.5em 30px;
+    color: #444;
 }
 
 #header h1 {
@@ -38,11 +49,6 @@ h1 {
 
 
 
-h3 {
-    font-size: 1.2em;
-    margin: 0.5em 30px;
-    color: #444;
-}
 
 #header h2 {
     display: none;
@@ -237,6 +243,7 @@ input[type=submit]:active, input[type=button]:active {
 .dashboard-entry h3 {
     float: left;
     font-size: 2.5em;
+    margin: 0;
     padding: 10px 10px 15px;
     text-shadow: 1px 1px 3px rgba(0,0,0,.2);
 }

@@ -1,4 +1,4 @@
-{% extends "lates/base.htm" %}
+{% extends "base.htm" %}
 {% block title %}late signup - mealplanner{% endblock %}
 
 {% block javascript %}<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" /></script>
@@ -20,6 +20,9 @@
                 {{ form.email.errors }}
                 <label for="id_email">My email address is </label>
                 {{ form.email }}
+                {{ form.message.errors }}
+                <label for="id_message">My message to the cooks is (optional)</label>
+                {{ form.message }}
             </fieldset>
             <fieldset id="late-submit-type">
                 <legend>I need a late for {{ todays_weekdaystr }} dinner...</legend>

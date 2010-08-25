@@ -1,4 +1,4 @@
-{% extends "lates/base.htm" %}
+{% extends "base.htm" %}
 {% block title %}lates - mealplanner{% endblock %}
 
 {% block head %}<meta http-equiv="Refresh" content="300">{% endblock %}
@@ -17,6 +17,9 @@
                     <h3>{{ entry.name }}</h3>
                     <h4>{{ entry.dietstring }}{{ entry.restrictionstring }}</h4>
                     <div class="clear">&nbsp;</div>
+                    {% if entry.message %}
+                    <h5>{{ entry.message }}</h5>
+                    {% endif %}
                     {% if entry.early %}
                     <h5>Only make this late if dinner will be served early</h5>
                     {% endif %}
