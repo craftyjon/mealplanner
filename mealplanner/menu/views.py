@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.http import *
 
 from models import MenuItem
-from forms import MenuEditForm
+from forms import MenuItemForm
 
 def DisplayMenu(request):
 
