@@ -9,9 +9,6 @@ from mealplanner.lates.models import LateRecord
 def getWeekdayStr(t):
     delta = timedelta(days=1)
 
-    if t.hour >= 19:
-        t = t + delta
-
     tw = t.weekday()
     d = {6: "Sunday", 0: "Monday", 1: "Tuesday", 2: "Wednesday", 3: "Thursday", 4: "Friday", 5: "Saturday",}
 
@@ -19,9 +16,6 @@ def getWeekdayStr(t):
 
 def getWeekday(t):
     delta = timedelta(days=1)
-
-    if t.hour >= 19:
-        t = t + delta
 
     tw = t.weekday()
     return tw
@@ -60,7 +54,7 @@ def getExpiresTime():
 
 def getClock():
     now = datetime.datetime.now()
-    return "~"+now.strftime("%I:%M %p")
+    return now.strftime("%I:%M %p")
 
 def expireLates():
     ''' Removes all old lates '''
