@@ -1,10 +1,22 @@
+
 /* pika-lates.css
  * @revision 0.2
  * @author cdawzrd
  * @date 20100716
  *
- * Style for Mealplanner
+ * Mobile Style for Mealplanner
  */
+
+/* make the grid fluid */
+
+.row { width: 98%; }
+.g3 { width:25%; }
+.g4 { width: 33%; }
+.g12 { width:100%; }
+.col { margin: 0; }
+
+
+/* end grid changes */
 
 body {
     font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
@@ -258,7 +270,7 @@ input[type=submit]:active, input[type=button]:active {
     height: 60px;
     background: #8D9CB3;
     margin: 0;
-    width: 310px;
+    width: 33%;
     color: #fff;
 }
 
