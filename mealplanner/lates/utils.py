@@ -1,4 +1,5 @@
 import datetime
+import random
 from datetime import timedelta
 
 from django.db.models import Q
@@ -66,3 +67,7 @@ def expireLates():
             print "expiring late "+str(late.id)
             toDelete = LateRecord.objects.get(id=late.id)
             toDelete.delete()
+
+def getNoLatesMessage():
+    strings = ["Aren't you lucky!", "But the mealplanner server is hungry!", "Say it ain't so!", "But how many earlies?", "They'll just make a Toastie later on.", "Hot date on the town!"]
+    return random.choice(strings)

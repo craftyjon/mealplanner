@@ -46,7 +46,7 @@ def overview(request):
         if late.restrictionstring:
             late.restrictionstring += "."
 
-    return render_to_response('lates/overview.htm', {'current_date': curdate, 'media_url':media_url, 'todays_lates':todays_lates, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr})
+    return render_to_response('lates/overview.htm', {'current_date': curdate, 'media_url':media_url, 'todays_lates':todays_lates, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr, 'no_lates_message':getNoLatesMessage()})
 
 def dashboard(request):
     """Render the fullscreen dashboard view of the lates app."""
@@ -83,7 +83,7 @@ def dashboard(request):
         if late.restrictionstring:
             late.restrictionstring += "."
 
-    return render_to_response('lates/dashboard.htm', {'current_date': curdate, 'media_url':media_url, 'todays_lates':todays_lates, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr, 'logged_in':logged_in, 'meta_clock':meta_clock, 'meta_user':meta_user})
+    return render_to_response('lates/dashboard.htm', {'current_date': curdate, 'media_url':media_url, 'todays_lates':todays_lates, 'todays_weekday':todays_weekday, 'todays_weekdaystr':todays_weekdaystr, 'logged_in':logged_in, 'meta_clock':meta_clock, 'meta_user':meta_user, 'no_lates_message':getNoLatesMessage()})
 
 def signup(request):
     """Render the signup form for the lates app"""

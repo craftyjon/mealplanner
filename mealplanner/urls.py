@@ -8,9 +8,10 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^lates/', include('mealplanner.lates.urls')),
-    (r'^menu/', include('mealplanner.menu.urls')),
+    #(r'^menu/', include('mealplanner.menu.urls')),
     #(r'^cook/', include('mealplanner.cook.urls')),
     #(r'^clean/', include('mealplanner.clean.urls')),
+    (r'^menu/', 'django.views.generic.simple.direct_to_template', {'template': 'comingsoon.htm', 'extra_context': {'media_url':MEDIA_URL}}),
     (r'^cook/', 'django.views.generic.simple.direct_to_template', {'template': 'comingsoon.htm', 'extra_context': {'media_url':MEDIA_URL}}),
     (r'^clean/', 'django.views.generic.simple.direct_to_template', {'template': 'comingsoon.htm', 'extra_context': {'media_url':MEDIA_URL}}),
     ('^$', homepage),

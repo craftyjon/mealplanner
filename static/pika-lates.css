@@ -275,6 +275,14 @@ h3.center {
     text-align: center;
 }
 
+h4.center {
+    float: none;
+    margin: .5em auto;
+    width: 100%;
+    text-align: center;
+    color: #336;
+}
+
 
 
 /**** Begin dashboard mode styles ****/
