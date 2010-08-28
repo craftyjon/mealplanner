@@ -69,5 +69,5 @@ def expireLates():
             toDelete.delete()
 
 def getNoLatesMessage():
-    strings = ["Aren't you lucky!", "But the mealplanner server is hungry!", "Say it ain't so!", "But how many earlies?", "They'll just make a Toastie later on.", "Hot date on the town!"]
+    strings = ["Aren't you lucky!", "But the mealplanner server is hungry!", "Say it ain't so!", "But how many earlies?", "They'll just make a Toastie later on.", "Hot date on the town!", "No rummaging through tupperware for you.", "Awesome!", "But you should make one for the chickens!"]
     return random.choice(strings)
